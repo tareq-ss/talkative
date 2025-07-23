@@ -61,7 +61,7 @@ var validationKey=GlobalKey<FormState>();
                 ),
                 SizedBox(height: 15.h,),
                 FieldTextScreen(title: "Descirption",
-                  hint: "Enter desciption",desLine: 5,
+                  hint: "Enter descirption",desLine: 5,
                   validator: (value){
                     if(value==null||value.isEmpty){
                       return "des is required";
@@ -70,32 +70,21 @@ var validationKey=GlobalKey<FormState>();
                 SizedBox(height: 15.h,),
                 FieldTextScreen(title: "Date",
                   hint: "17-05-2025",suffixIcon: Icon(Icons.calendar_month),
-                  validator: (value){
-                    if(value==null||value.isEmpty){
-                      return "date is required";
-                    }
-                  }, onTap: (){
+                onTap: (){
                   showDatePicker(context: context, firstDate: DateTime.now(), lastDate: DateTime(2027));
                   },),
                 SizedBox(height: 15.h,),
                 Row(
                   children: [
                     Expanded(child: FieldTextScreen(title: "Start Time", hint: "09:08PM",suffixIcon: Icon(Icons.schedule),
-                      validator: (value){
-                      if(value==null||value.isEmpty){
-                        return "start time is required";
-                      }
-                    },onTap: (){
+                    onTap: (){
                       showTimePicker(context: context, initialTime: TimeOfDay(hour: 12, minute: 00));
                     },)
                     ),
                     SizedBox(width: 5.w,),
                     Expanded(child: FieldTextScreen(title: "End Time", hint: "10:08PM",suffixIcon: Icon(Icons.schedule),
-                      validator: (value){
-                      if(value==null||value.isEmpty){
-                        return "end time is required";
-                      }
-                    },))
+
+                    ))
                   ],
                 ),
                 SizedBox(height: 15.h,),
