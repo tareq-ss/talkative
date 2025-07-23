@@ -42,18 +42,45 @@ class _CircleInputScreenState extends State<CircleInputScreen> {
           children: [
             SizedBox(height: 150.h,),
             InkWell(onTap: (){
-              _pickImage;
-              showBottomSheet(context: context,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r)
-                  ) ,
-                  builder: (builder){
-                return Container(
-                 height: 200.h,
-                  color: Colors.white,
-                  child: Text("Tareq queder"),
-                );
-              });
+              showModalBottomSheet(context: context, builder: (context)=>Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 20.h),
+              child: IntrinsicHeight(
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity,60.h),
+                      backgroundColor: AppColor.mainColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.r)
+                      )
+                    ),
+
+                    onPressed: (){}, child: Text("Upload from Camera",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w500
+                    ),)),
+                    SizedBox(height: 10.h,),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(double.infinity,60.h),
+                            backgroundColor: AppColor.mainColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12.r)
+                            )
+                        ),
+
+                        onPressed: (){}, child: Text("Upload from Camera",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w500
+                      ),))
+                  ],
+                ),
+              ),));
             },
               child: Stack(
                 alignment: Alignment.bottomRight,
