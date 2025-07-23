@@ -43,7 +43,7 @@ class _CircleInputScreenState extends State<CircleInputScreen> {
             SizedBox(height: 150.h,),
             InkWell(onTap: (){
               showModalBottomSheet(context: context, builder: (context)=>Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 20.h),
+                  padding: EdgeInsets.symmetric(horizontal: 26.w,vertical: 25.h),
               child: IntrinsicHeight(
                 child: Column(
                   children: [
@@ -62,7 +62,7 @@ class _CircleInputScreenState extends State<CircleInputScreen> {
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w500
                     ),)),
-                    SizedBox(height: 10.h,),
+                    SizedBox(height: 15.h,),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(double.infinity,60.h),
@@ -72,7 +72,7 @@ class _CircleInputScreenState extends State<CircleInputScreen> {
                             )
                         ),
 
-                        onPressed: (){}, child: Text("Upload from Camera",
+                        onPressed: (){}, child: Text("Upload from Gallery",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.sp,
