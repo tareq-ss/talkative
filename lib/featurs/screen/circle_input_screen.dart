@@ -41,7 +41,10 @@ class _CircleInputScreenState extends State<CircleInputScreen> {
         child: Column(
           children: [
             SizedBox(height: 150.h,),
-            InkWell(onTap: (){
+            InkWell(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: (){
               showModalBottomSheet(context: context, builder: (context)=>Padding(
                   padding: EdgeInsets.symmetric(horizontal: 26.w,vertical: 25.h),
               child: IntrinsicHeight(
@@ -107,7 +110,10 @@ class _CircleInputScreenState extends State<CircleInputScreen> {
                     color: AppColor.mainColor
                   ),maxLines: 1,overflow: TextOverflow.ellipsis,),
                 ),
-               InkWell(onTap: (){
+               InkWell(
+                   splashColor: Colors.transparent,
+                   highlightColor: Colors.transparent,
+                   onTap: (){
                },
                    child: Container(
                      padding: EdgeInsets.all(2),

@@ -10,9 +10,10 @@ class FieldTextScreen extends StatelessWidget {
   final String hint;
   final int desLine;
   final Icon? suffixIcon;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
    final void Function()? onTap;
-  const FieldTextScreen({super.key, required this.title, required this.hint, this.desLine=1, this.suffixIcon, this.validator, this.onTap, });
+  const FieldTextScreen({super.key, required this.title, required this.hint, this.desLine=1, this.suffixIcon, this.validator, this.onTap, this.controller, });
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class FieldTextScreen extends StatelessWidget {
           color: Colors.black),),
         SizedBox(height: 6.h,),
         TextFormField(
+          controller: controller,
           onTap: onTap,
           readOnly: onTap!=null,
           decoration: InputDecoration(
