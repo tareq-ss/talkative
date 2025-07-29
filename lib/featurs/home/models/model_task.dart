@@ -17,6 +17,14 @@ class ModelTask{
     required this.des,
     required this.status,required this.TaskColors,});
 
+
+  static String timeFormat(context,TimeOfDay time){
+    final localizations = MaterialLocalizations.of(context);
+    final formattedTimeOfDay = localizations.formatTimeOfDay(time);
+    return formattedTimeOfDay.toString();
+    
+  }
+
    static List<ModelTask> tasks=[
   ];
 

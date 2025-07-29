@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 10.h,),
               TaskFilterDate(),
               SizedBox(height: 30.h,),
-              ListTasks(
+               ListTasks(
               )
             ],
           ),

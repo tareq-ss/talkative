@@ -7,14 +7,26 @@ import 'package:task_app/featurs/form/field_text_screen.dart';
 import 'package:task_app/featurs/home/models/model_task.dart';
 import 'package:task_app/featurs/screen/select_task_color.dart';
 
-class AddTasks extends StatelessWidget {
+class AddTasks extends StatefulWidget {
   AddTasks({super.key});
 
-var validationKey=GlobalKey<FormState>();
+  @override
+  State<AddTasks> createState() => _AddTasksState();
+}
+
+class _AddTasksState extends State<AddTasks> {
+  Color selectedColor = AppColor.orangeColors;
+
+  var validationKey=GlobalKey<FormState>();
+
 var titleController=TextEditingController();
+
 var desController=TextEditingController();
+
 TimeOfDay? startTime;
+
 TimeOfDay? endTime;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,13 +49,14 @@ TimeOfDay? endTime;
             ),
             onPressed: (){
               if(validationKey.currentState?.validate()??false){
-                ModelTask(title: titleController.text,
-                    startTime: "${startTime?.hour}:${startTime?.minute}",
-                    endTime: "${endTime?.hour}:${endTime?.minute}",
+                ModelTask.tasks.insert(0,ModelTask(title: titleController.text,
+                    startTime: ModelTask.timeFormat(context, startTime??TimeOfDay.now()),
+                    endTime: ModelTask.timeFormat(context, endTime??TimeOfDay.now()),
                     des: desController.text,
                     status: "Todo",
-                    TaskColors: AppColor.orangeColors);
+                    TaskColors: selectedColor));
               }
+              Navigator.pop(context);
             },
             child: Padding(
               padding: const EdgeInsets.all(15),
@@ -76,8 +89,8 @@ TimeOfDay? endTime;
                 SizedBox(height: 15.h,),
                 FieldTextScreen(
                   controller: desController,
-                  title: "Descirption",
-                  hint: "Enter descirption",desLine: 5,
+                  title: "Description",
+                  hint: "Enter description",desLine: 5,
                   validator: (value){
                     if(value==null||value.isEmpty){
                       return "des is required";
@@ -113,8 +126,7 @@ TimeOfDay? endTime;
                             dayPeriodColor: AppColor.mainColor,
                             entryModeIconColor: AppColor.mainColor,
                             dialHandColor: AppColor.mainColor
-                          ),
-                        )
+                          ),)
                             , child: child!);
                         }
                       ).then((v){
@@ -147,8 +159,16 @@ TimeOfDay? endTime;
                   ],
                 ),
                 SizedBox(height: 15.h,),
-                SelectTaskColor(),
-            
+                SelectTaskColor(
+                  onChange: (Color){
+                    setState(() {
+                      selectedColor = Color;
+                    });
+                  }, isActive: () {
+
+                },
+                ),
+
               ],
             ),
           ),

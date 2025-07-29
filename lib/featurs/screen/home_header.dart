@@ -5,9 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_app/core/theme/app_color.dart';
 import 'package:task_app/featurs/screen/add_tasks.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends StatefulWidget {
   const HomeHeader({super.key});
 
+  @override
+  State<HomeHeader> createState() => _HomeHeaderState();
+}
+
+class _HomeHeaderState extends State<HomeHeader> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -31,10 +36,12 @@ class HomeHeader extends StatelessWidget {
           ],
         ),
         InkWell(
-          onTap: (){
-            
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>AddTasks()));
-            
+          onTap: ()async{
+
+            await Navigator.push(context, MaterialPageRoute(builder: (context) =>AddTasks()));
+            setState(() {
+
+            });
           },
           child: Container(
            padding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.w),
